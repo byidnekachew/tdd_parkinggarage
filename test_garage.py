@@ -1,5 +1,5 @@
 import pytest
-from garage import enter_garage, enter_garage
+from garage import enter_garage, exit_garage
 
 # Tests for enter_garage
 def test_enter_garage_works():
