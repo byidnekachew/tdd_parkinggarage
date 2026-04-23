@@ -17,3 +17,9 @@ def test_enter_garage_valerr_if_car_exists():
     with pytest.raises(ValueError):
         garage_dict = {"capacity": 10, "cars": {"ABC1234": 13}}
         enter_garage(garage_dict, "ABC1234", 15)
+
+
+def test_enter_garage_typeerr_if_time_not_int():
+    with pytest.raises(TypeError):
+        garage_dict = {"capacity": 10, "cars": {}}
+        enter_garage(garage_dict, "ABC1234", "three o'clock")
