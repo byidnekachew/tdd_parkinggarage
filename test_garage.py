@@ -1,6 +1,7 @@
 import pytest
 from garage import enter_garage
 
+# Tests for enter_garage
 def test_enter_garage_works():
     garage_dict = {"capacity": 10, "cars": {}}
     enter_garage(garage_dict, "ABC1234", 13)
@@ -23,3 +24,10 @@ def test_enter_garage_typeerr_if_time_not_int():
     with pytest.raises(TypeError):
         garage_dict = {"capacity": 10, "cars": {}}
         enter_garage(garage_dict, "ABC1234", "three o'clock")
+
+
+# Tests for exit_garage
+def test_exit_garage_works():
+    garage_dict = {"capacity": 10, "cars": {"ABC1234": 13}}
+    exit_garage(garage_dict, "ABC1234")
+    assert "ABC1234" not in garage_dict["cars"].keys()
