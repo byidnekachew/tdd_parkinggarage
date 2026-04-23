@@ -1,5 +1,5 @@
 import pytest
-from garage import enter_garage, exit_garage
+from garage import enter_garage, exit_garage, get_available_spots
 
 # Tests for enter_garage
 def test_enter_garage_works():
@@ -32,7 +32,14 @@ def test_exit_garage_works():
     exit_garage(garage_dict, "ABC1234")
     assert "ABC1234" not in garage_dict["cars"].keys()
 
+
 def test_exit_garage_keyerr_if_car_not_exist():
         with pytest.raises(KeyError):
             garage_dict = {"capacity": 10, "cars": {}}
             exit_garage(garage_dict, "ABC1234")
+
+
+# Tests for get_availible_spots
+def test_get_available_spots_works():
+    garage_dict = {"capacity": 10, "cars": {"ABC1234": 13}}
+    assert get_available_spots(garage_dict) == 9
