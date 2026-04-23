@@ -31,3 +31,8 @@ def test_exit_garage_works():
     garage_dict = {"capacity": 10, "cars": {"ABC1234": 13}}
     exit_garage(garage_dict, "ABC1234")
     assert "ABC1234" not in garage_dict["cars"].keys()
+
+def test_exit_garage_keyerr_if_car_not_exist():
+        with pytest.raises(KeyError):
+            garage_dict = {"capacity": 10, "cars": {}}
+            exit_garage(garage_dict, "ABC1234")
