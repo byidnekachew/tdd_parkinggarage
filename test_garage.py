@@ -43,3 +43,7 @@ def test_exit_garage_keyerr_if_car_not_exist():
 def test_get_available_spots_works():
     garage_dict = {"capacity": 10, "cars": {"ABC1234": 13}}
     assert get_available_spots(garage_dict) == 9
+
+def test_get_available_spots_empty():
+    garage_dict = {"capacity": 1, "cars": {"ABC1234": 13}}
+    assert get_available_spots(garage_dict) == 0
