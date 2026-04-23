@@ -3,7 +3,9 @@ def enter_garage(garage, car_id, entry_hour):
         raise ValueError("Garage is full")
     if car_id in garage["cars"].keys():
         raise ValueError("Car already in garage")
-        
+    if not isinstance(entry_hour, int):
+        raise TypeError("Time must be numeric hour")
+
     garage["cars"][car_id] = entry_hour
 
 
