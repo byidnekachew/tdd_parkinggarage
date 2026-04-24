@@ -56,5 +56,5 @@ def test_get_available_spots_empty():
     (8, 2.5, 20.00),
     (5.5, 2, 11.00)
 ])
-def test_calculate_fee_works(score, expected):
+def test_calculate_fee_works(hours, expected):
     assert calculate_fee(hours, rate) == expected
