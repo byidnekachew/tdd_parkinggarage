@@ -23,5 +23,7 @@ def get_available_spots(garage):
 def calculate_fee(hours, rate):
     if hours < 0 or rate < 0:
         raise ValueError("Time spent and rate paid must be positive")
-    
+    if not isinstance(hours, (int, float)) or not isinstance(rate, (int, float)):
+        raise TypeError("Time and rate must be numeric")
+
     return round((hours*rate), 2)
