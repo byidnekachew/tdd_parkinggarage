@@ -21,4 +21,7 @@ def get_available_spots(garage):
 
 
 def calculate_fee(hours, rate):
+    if hours < 0 or rate < 0:
+        raise ValueError("Time spent and rate paid must be positive")
+    
     return round((hours*rate), 2)
