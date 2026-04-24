@@ -67,3 +67,12 @@ def test_calculate_fee_works(hours, rate, expected):
 def test_calculate_fee_valerr_if_negative_inputs(hours, rate):
     with pytest.raises(ValueError):
         calculate_fee(hours, rate)
+
+
+@pytest.mark.parametrize("hours, rate", [
+    ("three", 2),
+    (3, "2")
+])
+def test_calculate_fee_typerr_if_nonnumeric_inputs(hours, rate):
+    with pytest.raises(TypeError):
+        calculate_fee(hours, rate)
